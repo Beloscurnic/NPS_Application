@@ -36,7 +36,7 @@ namespace NPS_WebAPI.Controllers
             return Ok(response);
         }
         [HttpDelete("Delet_GroupQuestionnaire")]
-        public async Task<ActionResult> Delet_GroupQuestionnaire([FromBody] int ID_GroupQuestionnaire)
+        public async Task<ActionResult> Delet_GroupQuestionnaire(int ID_GroupQuestionnaire)
         {
             var command = new GroupQuestionnaire_Delet.Command(ID_GroupQuestionnaire);
             await Mediator.Send(command);
