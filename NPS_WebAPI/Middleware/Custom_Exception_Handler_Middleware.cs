@@ -51,6 +51,8 @@ namespace NPS_WebAPI.Middleware
             {
                 result = JsonSerializer.Serialize(new { error = exception.Message });
             }
+            // Логирование исключения
+            Log.Error("Произошла ошибка при обработке запроса: {ExceptionMessage}. {Data}", exception.Message, exception.Data);
             return context.Response.WriteAsync(result);
         }
     }

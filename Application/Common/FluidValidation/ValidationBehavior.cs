@@ -18,6 +18,8 @@ namespace Application.Common.FluidValidation
 
             // Выполнить предобработку
 
+            Log.Information("Начинаем проверку запроса: {Request}", request);
+
             // Создание контекста валидации для запроса
             var context = new ValidationContext<TRequest>(request);
 
@@ -29,9 +31,13 @@ namespace Application.Common.FluidValidation
                 .ToList();
 
             if (failures.Count != 0)
-            {            
+            {
+                Log.Error("Не удалось выполнить проверку запроса: {request}. Ошибки: {failures}", request, failures);
                 throw new ValidationException(failures);
             }
+
+            Log.Information("Проверка успешна для запроса: {Request}", request);
+
             return await next();
         }
     }

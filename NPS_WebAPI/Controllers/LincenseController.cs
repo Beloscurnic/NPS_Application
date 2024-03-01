@@ -36,7 +36,7 @@ namespace NPS_WebAPI.Controllers
         }
 
         [HttpDelete("Delet_Lincense")]
-        public async Task<ActionResult> Delet_Lincense([FromBody]Guid ID_Lincense)
+        public async Task<ActionResult> Delet_Lincense(Guid ID_Lincense)
         {
             var command = new Application.Requests.Commands.Delet_Lincense.Lincense_Delet.Command(ID_Lincense);
             await Mediator.Send(command);

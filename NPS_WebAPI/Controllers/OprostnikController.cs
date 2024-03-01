@@ -38,7 +38,7 @@ namespace NPS_WebAPI.Controllers
             return Ok(rm);
         }
         [HttpDelete("Delet_Oprostnik")]
-        public async Task<ActionResult> Delet_Oprostnik(int ID_Oprostniks)
+        public async Task<ActionResult> Delet_Oprostnik(int ID_Oprostnik)
         {
             var command = new Application.Requests.Commands.Delet_Oprostnik.Oprostnik_Delet.Command { ID_Oprostniks = ID_Oprostniks };
             await Mediator.Send(command);

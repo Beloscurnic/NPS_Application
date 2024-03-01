@@ -13,8 +13,8 @@ namespace Application.Common.LoggingBehavior
         {
             var requestName = typeof(TRequest).Name;
 
-            Log.Information("Notes Request: {Name} {@Request}",
-                requestName, request);
+            //Log.Information("Notes Request: {Name} {@Request}",
+            //    requestName, request);
 
             var response = await next();
 
